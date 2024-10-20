@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="assets/images/favicon.png" type="assets/images/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gianni Parisi & Andrea Landini</title>
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
+
+    <!-- Link to external CSS for header, burger menu, and video background -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Link to Google Fonts for EB Garamond -->
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'EB Garamond', serif;
+            margin: 0;
+            padding: 0;
+            font-weight: 100;
+            overflow-y: auto;
+            height: 100%;
+        }
+
+        h1, h2 {
+            color: #0E6696;
+        }
+
+        /* Main content styling */
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 120px auto 0;
+            padding: 20px;
+            text-align: left;
+            background-color: rgba(255, 255, 255, 0.8);
+            z-index: 9;
+            position: relative;
+        }
+        h1, h2 {
+            color: #0E6696;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 18px;
+            z-index: 9;
+        }
+
+        table th, table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+            vertical-align: middle;
+        }
+
+        table th {
+            background-color: white;
+            color: #0E6696;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section h2 {
+            border-bottom: 2px solid #0E6696;
+            padding-bottom: 5px;
+        }
+
+        .section p {
+            margin: 5px 0;
+        }
+
+        .job-entry {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+        }
+
+        .job-entry p {
+            margin: 0;
+        }
+
+        /* Download button styling */
+        .button-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+
+
+        .download-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: transparent;
+            border: 2px solid #0E6696;
+            color: #0E6696;
+            font-family: 'EB Garamond', serif;
+            font-weight: 500;
+            font-size: 18px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-left: 0px; /* Add a bit of space between text and button */
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background-color: #0E6696;
+            color: white;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Background video -->
+    <video autoplay muted loop playsinline class="background-video">
+        <source src="assets/videos/water.mp4" type="video/mp4">
+        Your browser does not support the video.
+    </video>
+
+    <div class="canvas-overlay"></div>
+
+    <header>
+        <div class="header-title">
+            <div class="header-title-text">
+                <a href="index.html" >Gianni Parisi & Andrea Landini</a>
+            </div>
+        </div>
+
+        <nav class="header-nav">
+            <ul class="header-nav-list">
+                <li class="header-nav-item"><a href="about.html">About Us</a></li>
+                <li class="header-nav-item"><a href="index.html">Projects</a></li>
+                <li class="header-nav-item"><a href="contact.html">Contact Information</a></li>
+            </ul>
+        </nav>
+
+        <!-- Burger Menu Icon for Mobile -->
+        <div class="burger-box">
+            <div class="top-bun"></div>
+            <div class="patty"></div>
+            <div class="bottom-bun"></div>
+        </div>
+    </header>
+
+    <div class="fullscreen-menu">
+        <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="index.html">Projects</a></li>
+            <li><a href="contact.html">Contact Information</a></li>
+        </ul>
+    </div>
+
+    <main class="content-wrapper">
+	    <h1>Contact Information</h1>
+	    <h2>Gianni Parisi</h2>
+
+        <table>
+            <tr>
+                <th>Main Email</th>
+                <td>gianniparisi822@gmail.com</td>
+            </tr>
+            <tr>
+                <th>Phone Number</th>
+                <td>+39 333 987 3488</td>
+            </tr>
+            <tr>
+                <th>Resume</th>
+                <td>
+                    <a href="assets/pdf/Parisi Gianni CV (EN).pdf" class="download-btn" download="Parisi Gianni CV (EN).pdf">Download PDF</a>
+                </td>
+            </tr>
+            <tr>
+                <th>LinkedIn</th>
+                <td>
+                    <a href="https://www.linkedin.com/in/gianni-parisi-ab8618255/" class="download-btn">Gianni Parisi LinkedIn profile</a>
+                </td>
+            </tr>
+        </table>
+
+
+
+
+        <br><!-- Adds 3 empty lines -->  
+        <h2>Andrea Landini</h2>
+
+        <table>
+            <tr>
+                <th>Main Email</th>
+                <td>andrea.landini@uni.li</td>
+            </tr>
+            <tr>
+                <th>Secondary Email</th>
+                <td>a.landini.mi@gmail.com</td>
+            </trAndrea Landini>
+            <tr>
+                <th>Phone Number</th>
+                <td>+39 380 769 7351</td>
+            </tr>
+            <tr>
+                <th>Resume</th>
+                <td>
+                    <a href="assets/pdf/Resume_AL.pdf" class="download-btn" download="Resume_AL.pdf">Download PDF</a>
+                </td>
+            </tr>
+            <tr>
+                <th>LinkedIn</th>
+                <td>
+                    <a href="https://www.linkedin.com/in/andrea-landini/" class="download-btn">Andrea Landini LinkedIn profile</a>
+                </td>
+            </tr>
+        </table>
+
+        <br><br><br> <!-- Adds 3 empty lines -->      
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
+
