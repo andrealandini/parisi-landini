@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="assets/images/favicon.png" type="assets/images/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gianni Parisi & Andrea Landini - Projects</title>
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
+
+    <!-- Link to external CSS for header, burger menu, and video background -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Link to Google Fonts for EB Garamond -->
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'EB Garamond', serif;
+            margin: 0;
+            padding: 0;
+            font-weight: 100;
+            overflow-y: auto;
+            height: 100%;
+        }
+
+        h1, h2 {
+            color: #0E6696;
+        }
+
+        /* Main content styling */
+        .content-wrapper {
+/*	padding: 10px 20px 20px 20px; /* top right bottom left */
+            max-width: 1200px;
+            margin: 120px auto 0;
+            padding: 20px;
+            text-align: left;
+            background-color: rgba(255, 255, 255, 0.8);
+            z-index: 9;
+            position: relative;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section h2 {
+            border-bottom: 2px solid #0E6696;
+            padding-bottom: 5px;
+        }
+
+        .section p {
+            margin: 5px 0;
+        }
+
+        .job-entry {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+        }
+
+
+        /* Download button styling */
+        .button-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: transparent;
+            border: 3px solid #0E6696;
+            color: #0E6696;
+            font-family: 'EB Garamond', serif;
+            font-weight: 500;
+            font-size: 1.5em;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background-color: #0E6696;
+            color: white;
+        }
+        ul li {
+            margin-bottom: 0px; /* Ho aggiunto questo perché volevo l'abstract indentato, ma ha cambiaot l'header
+            A 0 torna normale, qundi caso mai fai un special ul li per l'abstract*/
+        }
+
+        .paper-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+	    p {
+            text-align: justify;
+        }
+        /*
+        .paper-link {
+            display: block;
+            transition: background-color 0.1s ease, box-shadow 0.3s ease;
+        }
+
+
+        .paper-link:hover {
+            background-color: #e0f7fa; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .paper-section h2 {
+            border-bottom: 3px solid #0E6696; 
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            font-size: 1.5em; 
+            color: #0E6696; 
+        } */
+        
+        /* Make sure the whole section is included in the clickable area */
+        .paper-link {
+            display: block;
+            transition: background-color 0.1s ease-in, box-shadow 0.1s ease-in;
+        }
+
+        /* Add hover effect to the entire section */
+        .paper-link:hover {
+            background-color: #e0f7fa; /* Highlight entire section */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for visual depth */
+            cursor: pointer;
+        }
+
+        /* Keep the highlight visible slightly longer on mouse leave */
+        .paper-link {
+            transition: background-color 0.1s ease-in, box-shadow 0.1s ease-in, background-color 0.3s ease-out, box-shadow 0.3s ease-out;
+        }
+
+
+	.content-wrapper.expanded {
+	    padding-top: 50px; /* more space on top */
+	    padding-bottom: 500px; /* more space at the bottom */
+	}
+
+    .job-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap; /* <-- this prevents wrapping! */
+    gap: 20px; /* optional: a little gap between date and author */
+    }
+
+    .job-entry p {
+    flex: 1; /* date and authors take up equal flexible space */
+    margin: 0;
+    white-space: nowrap; /* prevents breaking into 2 lines */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    }
+
+
+    </style>
+</head>
+
+<body>
+    <!-- Background video -->
+    <video autoplay muted loop playsinline preload="auto" id="background-video" class="background-video">
+        <source src="assets/videos/water.mp4" type="video/mp4">
+        Your browser does not support the video.
+    </video>
+
+    <div class="canvas-overlay"></div>
+
+
+
+    <header>
+        <div class="header-title">
+          <div class="header-title-text">
+            <a href="index.html">Gianni Parisi & Andrea Landini</a>
+          </div>
+        </div>
+      
+        <!-- Language Switch FIRST -->
+         
+<!--        <div class="language-switch">
+          <button id="lang-en" class="active">EN</button> |
+          <button id="lang-de">DE</button>
+	  </div> -->
+
+        <!-- Burger Menu SECOND -->
+        <input type="checkbox" id="menuToggle" style="display: none;">
+        <label class="menu-btn" for="menuToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+      
+        <!-- Fullscreen Mobile Menu -->
+        <nav class="menu">
+        <div class="menu-title">Gianni Parisi & Andrea Landini</div> 
+          <a href="about.html" data-translate="about">About Us</a>
+          <a href="index.html" data-translate="projects">Projects</a>
+          <a href="contact.html" data-translate="contact">Contact Information</a>
+        </nav>
+      
+        <!-- Desktop Navigation -->
+        <nav class="header-nav">
+          <ul class="header-nav-list">
+            <li class="header-nav-item"><a href="about.html" data-translate="about">About Us</a></li>
+            <li class="header-nav-item"><a href="index.html" data-translate="home">Projects</a></li>
+            <li class="header-nav-item"><a href="contact.html" data-translate="contact">Contact Information</a></li>
+          </ul>
+        </nav>
+      </header>
+      
+          
+
+
+    <div class="fullscreen-menu">
+
+	    <ul>
+		<li><a href="about.html" data-translate="about">About Us</a></li>
+		<li><a href="index.html" data-translate="home">Projects</a></li>
+		<li><a href="contact.html" data-translate="contact">Contact Information</a></li>
+	    </ul>
+	</div>
+
+    <main class="content-wrapper">
+	
+	<div class="sort-buttons">
+	    <button id="sort-latest" data-translate="latest">Latest</button>
+	    <button id="sort-popular" data-translate="popular">Popular</button>
+	    <button id="sort-oldest" data-translate="oldest">Oldest</button>
+	    <button id="sort-topics" data-translate="topics">Topics</button>
+	</div>
+
+
+	<!--	<div id="topics-list" style="text-align:center; margin-top:10px; display:none;"> -->
+	<div id="topics-list" style="margin-top:10px; display:none;">
+
+	  <!-- When you click "Topics", some topic buttons will appear here automatically -->
+	</div>
+
+
+	<div id="menu-list">
+
+		<div class="menu-item" data-date="2024-11-10" data-popular="false" data-classification="economics">
+
+            <a href="projects/carrytrade.html" class="paper-link">
+                <h2>Dynamics and Risks of Carry Trade Strategies in Modern Financial Markets</h2>
+     
+
+                <div class="job-entry">
+                    <p style="display: block; text-align: left;">Published on: 25 March 2025</p>
+                    <p style="display: block; text-align: left;"><strong>Author: Gianni Parisi, Andrea Landini</strong></p>
+                  </div>
+
+                <p>This paper examines carry trade strategies, focusing on market reactions to interest rate changes and currency interventions. It explores how carry trades leverage interest rate differentials, with investors borrowing in low-yield currencies to invest in higher-return assets. The study reviews types of carry trades, such as currency and asset-based, and discusses risks like currency, interest rate, and liquidity. The Dollar-Yen carry trade, affected by Bank of Japan interventions, illustrates the strategy's volatility. 
+                </p>
+            </a>
+    </div>	
+    <!--  
+	<div class="menu-item" data-date="2025-01-21" data-popular="false" data-classification="nn">
+
+            <a href="projects/etf_nn.html" class="paper-link">
+                <h2>Neural Network Framework for ETF Selection and Analysis</h2>
+        
+                <div class="job-entry">
+                    <p style="display: block; text-align: left;">Published on: 21 January 2025</p>
+                    <p style="display: block; text-align: left;"><strong>Author: Andrea Landini</strong></p>
+                  </div>
+                  
+                <p>
+                    This study explores a dual-neural-network system for ETF analysis, integrating top holdings scoring and fund-level selection. Leveraging financial metrics such as EPS, EBITDA, and Net Income, the framework ensures comparability across ETFs and optimizes portfolio selection. The results demonstrate robust performance in aligning ETF choices with investment goals.
+                </p>
+            </a>
+        </div>
+  
+	<div class="menu-item" data-date="2025-01-15" data-popular="false" data-classification="nn">
+
+            <a href="projects/btc_nn.html" class="paper-link">
+                <h2>Neural Network-Based Parameter Estimation for Jump-Diffusion Model</h2>
+     
+
+            <div class="job-entry">
+                <p style="display: block; text-align: left;">Published on: 15 January 2025</p>
+                <p style="display: block; text-align: left;"><strong>Author: Andrea Landini</strong></p>
+              </div>
+                <p>This study introduces a neural network framework for estimating parameters in jump-diffusion models of asset prices. Using OHLC data, the model refines key parameters (drift, volatility, jump intensity, and jump size) by minimizing the difference between simulated and actual prices. This approach effectively captures both continuous market trends and sudden jumps, providing a robust tool for modeling complex financial dynamics.</p>
+            </a>
+        </div>
+
+	-->
+
+    <!--   
+
+
+
+
+
+
+
+	<div class="menu-item" data-date="2000-01-01" data-popular="true" data-classification="quant-finance">
+
+            <a href="projects/gold_sde.html" class="paper-link">
+                <h2>Stochastic Model & Multivariate Markov-switching GARCH of Gold Price Dynamics</h2>
+     
+                <div class="job-entry">
+                    <p style="display: block; text-align: left;"><strong>Not Yet Published</strong></p>
+                    <p style="display: block; text-align: left;"><strong>Author: Andrea Landini</strong></p>
+                  </div>
+                <p>This study investigates modeling gold price dynamics using Stochastic Models and Multivariate Markov-switching GARCH (MSGARCH), which capture volatility, regime shifts, and asset dependencies. MSGARCH identifies volatility phases, while stochastic models address long-term trends and sudden shifts.
+                </p>
+            </a>
+        </div>
+
+
+	<div class="menu-item" data-date="2001-01-01" data-popular="true" data-classification="quant-finance">
+            <a href="projects/irs_sde.html" class="paper-link">
+                <h2>Modeling of Interest Rate Swaps with Stochastic Volatility and Regime-Switching</h2>
+     
+                <div class="job-entry">
+                    <p style="display: block; text-align: left;"><strong>Not Yet Published</strong></p>
+                    <p style="display: block; text-align: left;"><strong>Author: Andrea Landini</strong></p>
+                  </div>
+                <p>Interest rate swaps (IRS) are vital tools for managing interest rate exposure, offering flexibility in cash flow and hedging strategies. This analysis employs stochastic volatility models and regime-switching GARCH to capture dynamic fluctuations, mean reversion, and volatility clustering in IRS markets.
+                </p>
+        </a>
+            </div>
+    -->
+
+
+	<br><br><br><br><br><br><br><br>
+
+        
+
+    </div> 
+    </main>
+<!-- Step 1: Load translation script first -->
+<script src="script.js"></script>
+
+<!-- Step 2: Your page-specific sorting + topics script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const menuItems = Array.from(document.querySelectorAll('.menu-item'));
+    const container = document.getElementById('menu-list');
+
+    const latestButton = document.getElementById('sort-latest');
+    const popularButton = document.getElementById('sort-popular');
+    const oldestButton = document.getElementById('sort-oldest');
+    const topicsButton = document.getElementById('sort-topics');
+
+    const topicsList = document.getElementById('topics-list');
+
+    function setActive(button) {
+        [latestButton, popularButton, oldestButton, topicsButton].forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+    }
+
+    function setTopicsButtonText(key) {
+        if (typeof translations !== 'undefined' && translations[currentLanguage]) {
+            topicsButton.textContent = translations[currentLanguage][key];
+        } else {
+            topicsButton.textContent = key; // fallback
+        }
+    }
+
+    function sortByDate(descending = true) {
+        menuItems.sort((a, b) => {
+            const dateA = a.getAttribute('data-date');
+            const dateB = b.getAttribute('data-date');
+
+            if (dateA === 'not-yet-published') return 1;
+            if (dateB === 'not-yet-published') return -1;
+
+            const parsedDateA = new Date(dateA);
+            const parsedDateB = new Date(dateB);
+            return descending ? parsedDateB - parsedDateA : parsedDateA - parsedDateB;
+        });
+        updateDisplay();
+    }
+
+    function sortByPopular() {
+        menuItems.sort((a, b) => {
+            const popA = a.getAttribute('data-popular') === 'true' ? 0 : 1;
+            const popB = b.getAttribute('data-popular') === 'true' ? 0 : 1;
+            return popA - popB;
+        });
+        updateDisplay();
+    }
+
+    function updateDisplay() {
+        container.innerHTML = '';
+        menuItems.forEach(item => container.appendChild(item));
+        topicsList.style.display = 'none';
+        setTopicsButtonText('topics'); // Reset to "Topics" after sort
+	document.querySelector('.content-wrapper').classList.remove('expanded');
+    }
+
+    function showTopics() {
+        setTopicsButtonText('topics'); // Reset to "Topics" when showing topics
+
+        const classifications = new Set();
+        menuItems.forEach(item => {
+            const topic = item.getAttribute('data-classification');
+            if (topic) {
+                classifications.add(topic);
+            }
+	
+        });
+
+        topicsList.innerHTML = '';
+
+        classifications.forEach(topic => {
+            const button = document.createElement('button');
+            const img = document.createElement('img');
+            img.src = 'assets/images/' + topic + '.png';
+            img.alt = topic;
+            img.style.width = '100%';
+            img.style.height = 'auto';
+            img.style.borderRadius = '15px';
+
+            button.appendChild(img);
+            button.className = 'topic-button';
+            button.addEventListener('click', () => filterByTopic(topic));
+            topicsList.appendChild(button);
+        });
+
+        topicsList.style.display = 'flex';
+        container.innerHTML = '';
+	document.querySelector('.content-wrapper').classList.add('expanded'); 
+    }
+
+    function filterByTopic(topic) {
+        container.innerHTML = '';
+
+        menuItems.forEach(item => {
+            if (item.getAttribute('data-classification') === topic) {
+                container.appendChild(item);
+            }
+        });
+
+        topicsList.innerHTML = '';
+
+        setTopicsButtonText('clickToSeeAllTopics'); // When a topic is clicked
+    }
+
+    // Button Event Listeners
+    latestButton.addEventListener('click', () => {
+        sortByDate(true);
+        setActive(latestButton);
+    });
+
+    oldestButton.addEventListener('click', () => {
+        sortByDate(false);
+        setActive(oldestButton);
+    });
+
+    popularButton.addEventListener('click', () => {
+        sortByPopular();
+        setActive(popularButton);
+    });
+
+    topicsButton.addEventListener('click', () => {
+        showTopics();
+        setActive(topicsButton);
+    });
+
+    // Default sorting when page loads
+    sortByPopular();
+    setActive(popularButton);
+});
+</script>
+
+</body>
+</html>
+
