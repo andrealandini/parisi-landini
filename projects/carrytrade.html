@@ -135,7 +135,45 @@
             text-decoration: underline;
             color: #0E6696;
         }
+
+
+
+.slideshow-container {
+    text-align: center;
+    margin: 40px 0;
+}
+
+#slide-image {
+    max-width: 100%;
+    height: auto;
+    border: 3px solid #0E6696;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.slide-buttons {
+    margin-top: 15px;
+}
+
+.slide-buttons button {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.2em;
+    background-color: #0E6696;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.slide-buttons button:hover {
+    background-color: #09476c;
+}
+
      </style>
+
 </head>
 
 <body>
@@ -200,7 +238,7 @@
 	    <!--<div class="button-container"> -->
 	<div class="button-container" style="display: flex; justify-content: center; gap: 40px;">
 	    <a href="../assets/pdf/carrytrade.pdf" class="download-btn" download="carrytrade.pdf">Download paper (PDF)</a> 
-	<a  class="download-btn" >WebPage [currently under maintenance]</a>
+	    <!--	<a  class="download-btn" >WebPage [currently under maintenance]</a> -->
 	</div>
 
 
@@ -246,6 +284,16 @@ it will likely unwound?</p>
 
 <p>In this paper we are going to discuss about it and we are going to try to understand how complex
 this investment strategy can get.</p>
+
+
+<div class="slideshow-container">
+    <img id="slide-image" src="../assets/images/ct_Japan.png" alt="Slideshow Image">
+    <div class="slide-buttons">
+        <button onclick="prevSlide()">&#8592; Prev</button>
+        <button onclick="nextSlide()">Next &#8594;</button>
+    </div>
+</div>
+
 
 
 <h2 id="definition">The Definition</h2>
@@ -429,6 +477,43 @@ Germany, France, Italy, United States and many more. The important variables for
     </main>
 
     <script src="../script.js"></script>
+<script>
+    const images = [
+        "../assets/images/ct_Japan.png",
+        "../assets/images/ct_Euro Area.png",
+        "../assets/images/ct_Canada.png",
+        "../assets/images/ct_China.png",
+        "../assets/images/ct_ct_United Kingdom.png",
+        "../assets/images/ct_Korea.png",
+        "../assets/images/ct_Mexico.png",
+        "../assets/images/ct_India.png",
+        "../assets/images/ct_Australia.png",
+        "../assets/images/ct_Switzerland.png",
+        "../assets/images/ct_South Africa.png",
+        "../assets/images/ct_Norway.png",
+        "../assets/images/ct_Sweden.png",
+        "../assets/images/ct_Denmark.png",
+        "../assets/images/ct_New Zealand.png"
+        // Add more images here
+    ];
+
+    let currentIndex = 0;
+    const slideImage = document.getElementById("slide-image");
+
+    function showSlide(index) {
+        slideImage.src = images[index];
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        showSlide(currentIndex);
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % images.length;
+        showSlide(currentIndex);
+    }
+</script>
 
 </body>
 </html>

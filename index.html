@@ -247,7 +247,7 @@
 
 	<div id="menu-list">
 
-		<div class="menu-item" data-date="2024-11-10" data-popular="false" data-classification="economics">
+		<div class="menu-item" data-date="2025-03-25" data-popular="true" data-classification="economics">
 
             <a href="projects/carrytrade.html" class="paper-link">
                 <h2>Dynamics and Risks of Carry Trade Strategies in Modern Financial Markets</h2>
@@ -255,6 +255,22 @@
 
                 <div class="job-entry">
                     <p style="display: block; text-align: left;">Published on: 25 March 2025</p>
+                    <p style="display: block; text-align: left;"><strong>Author: Gianni Parisi, Andrea Landini</strong></p>
+                  </div>
+
+                <p>This paper examines carry trade strategies, focusing on market reactions to interest rate changes and currency interventions. It explores how carry trades leverage interest rate differentials, with investors borrowing in low-yield currencies to invest in higher-return assets. The study reviews types of carry trades, such as currency and asset-based, and discusses risks like currency, interest rate, and liquidity. The Dollar-Yen carry trade, affected by Bank of Japan interventions, illustrates the strategy's volatility. 
+                </p>
+            </a>
+    </div>	
+
+<div class="menu-item" data-date="2025-05-04" data-popular="true" data-classification="economics">
+
+            <a href="projects/basistrade.html" class="paper-link">
+                <h2>Basis Trade</h2>
+     
+
+                <div class="job-entry">
+                    <p style="display: block; text-align: left;">Published on: 4th May 2025</p>
                     <p style="display: block; text-align: left;"><strong>Author: Gianni Parisi, Andrea Landini</strong></p>
                   </div>
 
@@ -346,6 +362,8 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const menuItems = Array.from(document.querySelectorAll('.menu-item'));
+    let displayedItems = [...menuItems];  // Add this
+
     const container = document.getElementById('menu-list');
 
     const latestButton = document.getElementById('sort-latest');
@@ -368,8 +386,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    function updateDisplay() {
+        container.innerHTML = '';
+        displayedItems.forEach(item => container.appendChild(item));
+        topicsList.style.display = 'none';
+        setTopicsButtonText('topics'); // Reset to "Topics" after sort
+        document.querySelector('.content-wrapper').classList.remove('expanded');
+    }
+
     function sortByDate(descending = true) {
-        menuItems.sort((a, b) => {
+        displayedItems = [...menuItems]; // reset to all items
+        displayedItems.sort((a, b) => {
             const dateA = a.getAttribute('data-date');
             const dateB = b.getAttribute('data-date');
 
@@ -384,20 +411,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function sortByPopular() {
-        menuItems.sort((a, b) => {
-            const popA = a.getAttribute('data-popular') === 'true' ? 0 : 1;
-            const popB = b.getAttribute('data-popular') === 'true' ? 0 : 1;
-            return popA - popB;
+        displayedItems = menuItems.filter(item => item.getAttribute('data-popular') === 'true');
+        displayedItems.sort((a, b) => {
+            const dateA = new Date(a.getAttribute('data-date'));
+            const dateB = new Date(b.getAttribute('data-date'));
+            return dateB - dateA;
         });
         updateDisplay();
-    }
-
-    function updateDisplay() {
-        container.innerHTML = '';
-        menuItems.forEach(item => container.appendChild(item));
-        topicsList.style.display = 'none';
-        setTopicsButtonText('topics'); // Reset to "Topics" after sort
-	document.querySelector('.content-wrapper').classList.remove('expanded');
     }
 
     function showTopics() {
@@ -409,7 +429,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if (topic) {
                 classifications.add(topic);
             }
-	
         });
 
         topicsList.innerHTML = '';
@@ -431,20 +450,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
         topicsList.style.display = 'flex';
         container.innerHTML = '';
-	document.querySelector('.content-wrapper').classList.add('expanded'); 
+        document.querySelector('.content-wrapper').classList.add('expanded'); 
     }
 
     function filterByTopic(topic) {
         container.innerHTML = '';
 
-        menuItems.forEach(item => {
-            if (item.getAttribute('data-classification') === topic) {
-                container.appendChild(item);
-            }
+        const filteredItems = menuItems.filter(item => item.getAttribute('data-classification') === topic);
+        
+        // Sort filtered items by latest date
+        filteredItems.sort((a, b) => {
+            const dateA = new Date(a.getAttribute('data-date'));
+            const dateB = new Date(b.getAttribute('data-date'));
+            return dateB - dateA;
         });
 
-        topicsList.innerHTML = '';
+        filteredItems.forEach(item => container.appendChild(item));
 
+        topicsList.innerHTML = '';
         setTopicsButtonText('clickToSeeAllTopics'); // When a topic is clicked
     }
 
@@ -474,6 +497,9 @@ document.addEventListener('DOMContentLoaded', function() {
     setActive(popularButton);
 });
 </script>
+
+
+
 
 </body>
 </html>
